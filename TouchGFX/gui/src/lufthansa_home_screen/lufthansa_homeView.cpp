@@ -48,12 +48,9 @@ void lufthansa_home_screenView::updateAirPressureSensor(double value)
 	Unicode::snprintf(air_pressure_sensor_1Buffer, AIR_PRESSURE_SENSOR_1_SIZE,"%d", value);    //Wildcards from lufthansa_home_ViewBase.hpp
 	air_pressure_sensor_1.invalidate();
 }
-void lufthansa_home_screenView::updateMovie(int8_t value)
+void lufthansa_home_screenView::updateMovieSelection(int8_t value)
 {
-	memset(&movie_id_Buffer, 0, sizeof(movie_id_Buffer));
-	Unicode::snprintf(movie_id_Buffer, MOVIE_ID_SIZE,"%d", value);    //Wildcards from Screen1ViewBase.hpp
-	//textSensor2.resizeToCurrentText();
-	movie_id_.invalidate();
+	presenter->Put_Movie_ToQueue(value);
 }
 
 void lufthansa_home_screenView::buttonCallbackHandler(const touchgfx::AbstractButton& src)
