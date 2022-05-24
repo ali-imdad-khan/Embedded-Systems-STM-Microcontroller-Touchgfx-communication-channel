@@ -31,6 +31,17 @@ public:
 protected:
 
     int8_t movie_id;
+    
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback<lufthansa_home_screenView, const touchgfx::AbstractButton&> buttonCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void buttonCallbackHandler(const touchgfx::AbstractButton& src);
+
 
 
 };
