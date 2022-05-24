@@ -14,14 +14,24 @@ public:
     {
         modelListener = listener;
     }
+    
+    int8_t getModelMovie(){
+        return movie;
+    }
+
+    void setModelMovie(int8_t  value){
+
+    	movie= value;
+    }
+
 
     void tick();
 
 
 protected:
     ModelListener* modelListener;
-
-
+    
+    int8_t movie;
 
 
 };
