@@ -27,8 +27,8 @@ void lufthansa_home_screenPresenter::setAirPressureSensor(double value)
 void lufthansa_home_screenPresenter::receive_Movie_FromQueue(){
 	model->queue_Read_Movie();
 }
-void lufthansa_home_screenPresenter::Put_Movie_ToQueue(){
-	model->queue_Put_Movie();
+void lufthansa_home_screenPresenter::Put_Movie_ToQueue(int8_t value){
+	model->queue_Put_Movie(value);
 }
 
 
