@@ -17,7 +17,15 @@ public:
 
     void updateMovieSelection(int8_t value);
     
-    void dark_calibration_screenView::abort_button_action();
+    void abort_button_action();
+    
+    void scroll_state_button_actions();
+    virtual void increment_scroll_state();
+    virtual void decrement_scroll_state();
+
+    void buttons_group_1(int8_t appear);//@param appear: 0 invisible, 1 visible
+    void buttons_group_2(int8_t appear);//@param appear: 0 invisible, 1 visible
+
 
 
 protected:
