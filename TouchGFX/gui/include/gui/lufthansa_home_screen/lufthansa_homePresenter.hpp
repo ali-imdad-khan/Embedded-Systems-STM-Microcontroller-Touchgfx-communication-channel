@@ -27,10 +27,13 @@ public:
 
     virtual ~lufthansa_home_screenPresenter() {};
 
-    //Movie Queue Read calls to model - > main
+    //Movie Queue Read calls to  main - > model - > View 
     void receive_Movie_FromQueue();
+    //Movie Queue Put calls to view - > model - > main
+    void Put_Movie_ToQueue();
+    
 
-    //Receive Air Pressure periodically read value
+    //Receive Air Pressure periodically read value main - > model - > View
     void setAirPressure(double value);
 
 
