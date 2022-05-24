@@ -48,19 +48,19 @@ void Model::tick()
 #ifndef SIMULATOR
 
 	//check for changes in unit value
-		///////////////MAIN->TGFX Example Dummy////////////////////
-		if(osMessageQueueGet(QueueTGFXHandle,&dataStruct, 0, 100)==osOK)
-		{
+	///////////////MAIN->TGFX Example Dummy////////////////////
+	if(osMessageQueueGet(QueueTGFXHandle,&dataStruct, 0, 100)==osOK)
+	{
       //Handle constant air pressure reading
-      if(data_addr==CAL_AIR_PRESSURE)
+		if(data_addr==CAL_AIR_PRESSURE)
+		{
+			if(dataStruct.air_presssure.all != old_air_pressure)
 			{
-        if(dataStruct.air_presssure.all != old_air_pressure)
-        {
-          old_air_pressure=dataStruct.air_pressure.all;
-          modelListener->setAirPressure(dataStruct.air_pressure.all);
-        }
-      }
-    }
+				old_air_pressure=dataStruct.air_pressure.all;
+				modelListener->setAirPressure(dataStruct.air_pressure.all);
+			}
+		}
+	}
 
 #endif
 
@@ -79,7 +79,7 @@ void Model::queue_Put_Movie(uint8_t value)
 	dataStruct.mvie.all=value;
 
 	data_addr=CAL_MOVIE
-	osMessageQueuePut(QueueData_Write_Handle,&uv_addr, 0, 100);
+	osMessageQueuePut(QueueData_Write_Handle,&data_addr, 0, 100);
 
 #endif
 
@@ -87,8 +87,8 @@ void Model::queue_Read_Movie()
 {
 #ifndef SIMULATOR
 
-	uv_addr=CAL_MOVIE
-	osMessageQueuePut(QueueData_Read_Handle,&uv_addr, 0, 100);
+	data_addr=CAL_MOVIE
+	osMessageQueuePut(QueueData_Read_Handle,&data_addr, 0, 100);
   
 	modelListener->setMovie(dataStruct.movie.all);
   
