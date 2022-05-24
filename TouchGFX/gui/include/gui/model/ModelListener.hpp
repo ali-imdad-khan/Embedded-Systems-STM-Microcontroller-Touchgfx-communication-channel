@@ -14,6 +14,8 @@ public:
     {
         model = m;
     }
+    
+    virtual void setAirPressure(double value){}
 
 protected:
     Model* model;
