@@ -16,6 +16,8 @@ public:
     void updateAirPressureSensor(double value);
 
     void updateMovieSelection(int8_t value);
+    
+    void dark_calibration_screenView::abort_button_action();
 
 
 protected:
